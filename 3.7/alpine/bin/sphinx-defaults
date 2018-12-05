@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+#############################################################################
+# NOTE: FILE GENERATED AUTOMATICALLY, DO NOT EDIT!!!
+#############################################################################
+
+
+# Default values for environment variables used by several scripts
+# of the korowai/sphinx docker image.
+
+DEFAULT_SPHINX_UID=1000
+DEFAULT_SPHINX_GID=1000
+DEFAULT_SPHINX_VERSION='1.7.1'
+DEFAULT_SPHINX_AUTOBUILD_VERSION='0.7.1'
+DEFAULT_SPHINX_RTD_THEME_VERSION='0.4.2'
+DEFAULT_SPHINX_AUTOBUILD_HOST='0.0.0.0'
+DEFAULT_SPHINX_AUTOBUILD_PORT=8000
+DEFAULT_SPHINX_AUTOBUILD_FLAGS=''
+DEFAULT_SPHINX_BUILD_FLAGS=''
+DEFAULT_SPHINX_SOURCE_DIR='docs/sphinx'
+DEFAULT_SPHINX_BUILD_DIR='docs/build/html'
+DEFAULT_SPHINX_BUILD_LOCK='/tmp/sphinx-build.lock'

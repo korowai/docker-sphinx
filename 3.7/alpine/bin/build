@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+#############################################################################
+# NOTE: FILE GENERATED AUTOMATICALLY, DO NOT EDIT!!!
+#############################################################################
+
+
+set -e
+
+. "`dirname $0`/sphinx-env"
+
+(
+  flock -x 200
+  sphinx-build "$SPHINX_SOURCE_DIR" "$SPHINX_BUILD_DIR" $SPHINX_BUILD_FLAGS
+) 200>"$SPHINX_BUILD_LOCK"

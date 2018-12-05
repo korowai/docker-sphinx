@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+#############################################################################
+# NOTE: FILE GENERATED AUTOMATICALLY, DO NOT EDIT!!!
+#############################################################################
+
+
+set -e
+
+. "`dirname $0`/sphinx-env"
+
+sphinx-autobuild --host "$SPHINX_AUTOBUILD_HOST" \
+                 --port "$SPHINX_AUTOBUILD_PORT" \
+                 $SPHINX_AUTOBUILD_FLAGS \
+                 "$SPHINX_SOURCE_DIR" "$SPHINX_BUILD_DIR"
