@@ -24,8 +24,7 @@ The default behavior is to build continuously and serve at the same time.
 ## Quick example
 
 Assume we have the following file hierarchy (the essential here is assumption
-that php source files are found under `src`, also we expect the documentation
-to be written-out somewhere under `docs`)
+that sphinx configuration file `conf.py` is found under `docs/sphinx`)
 
 ```console
 user@pc:$ tree .
@@ -90,7 +89,7 @@ As long as the container is running, the documentation is available at
 ## Customizing
 
 Several parameters can be changed via environment variables, for example we can
-change build to ``build/docs/html`` dir as follows
+change build directory to ``build/docs/html`` as follows
 
 ```console
 user@pc:$ docker run -v "$(pwd):/home/sphinx/project" -p 8000:8000 --rm -e SPHINX_BUILD_DIR=build/docs/html korowai/sphinx
