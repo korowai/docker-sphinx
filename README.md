@@ -7,10 +7,10 @@ The container is designed to build documentation for
 box. It may be easily adjusted to support other projects.
 
   - [![](https://images.microbadger.com/badges/version/korowai/sphinx.svg)](https://microbadger.com/images/korowai/sphinx "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx.svg)](https://microbadger.com/images/korowai/sphinx "Get your own image badge on microbadger.com")
-  - [![](https://images.microbadger.com/badges/version/korowai/sphinx:2.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:2.7-alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx:2.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:2.7-alpine "Get your own image badge on microbadger.com")
   - [![](https://images.microbadger.com/badges/version/korowai/sphinx:3.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.7-alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx:3.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.7-alpine "Get your own image badge on microbadger.com")
   - [![](https://images.microbadger.com/badges/version/korowai/sphinx:3.6-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.6-alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx:3.6-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.6-alpine "Get your own image badge on microbadger.com")
   - [![](https://images.microbadger.com/badges/version/korowai/sphinx:3.5-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.5-alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx:3.5-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.5-alpine "Get your own image badge on microbadger.com")
+  - [![](https://images.microbadger.com/badges/version/korowai/sphinx:2.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:2.7-alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx:2.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:2.7-alpine "Get your own image badge on microbadger.com")
 
 ## Features
 
