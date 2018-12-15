@@ -10,7 +10,7 @@ ARG VERSION
 
 LABEL org.label-schema.build-date="${BUILD_DATE}" \
       org.label-schema.name="Docker Sphinx Image" \
-      org.label-schema.description="Docker image with Sphinx documentation generator. Designed to build PHP API docs for Korowai project." \
+      org.label-schema.description="Docker image with Sphinx documentation generator. Designed to build docs for Korowai project." \
       org.label-schema.vcs-ref="${VCS_REF}" \
       org.label-schema.vcs-url="https://github.com/korowai/docker-sphinx" \
       org.label-schema.vendor="Paweł Tomulik" \
@@ -21,20 +21,22 @@ LABEL org.label-schema.build-date="${BUILD_DATE}" \
 @DOCKER_SPHINX_ENV@
 
 RUN set -xe && \
-  apk add --no-cache --update git && \
   addgroup -g $SPHINX_GID sphinx && \
-  adduser -D -G sphinx -u $SPHINX_UID sphinx
+  adduser -D -s /bin/sh -G sphinx -u $SPHINX_UID sphinx && \
+  apk add --no-cache --update git
 
 COPY bin/* /usr/local/bin/
 
 USER sphinx
 
-RUN python -m venv ~/.venv && . ~/.venv/bin/activate && \
+RUN (python -m venv ~/.venv || (python -m pip install --user -U virtualenv && ~/.local/bin/virtualenv ~/.venv)) && \
+    . ~/.venv/bin/activate && \
     python -m pip install -U pip && \
     python -m pip install sphinx=="${SPHINX_VERSION}" \
                           sphinx-autobuild=="${SPHINX_AUTOBUILD_VERSION}" \
-                          sphinx_rtd_theme=="${SPHINX_RTD_THEME_VERSION}"\
-                          "git+https://github.com/fabpot/sphinx-php.git@@7312ecc#egg_name=sphinx-php"
+                          sphinx_rtd_theme=="${SPHINX_RTD_THEME_VERSION}" \
+                          "git+https://github.com/fabpot/sphinx-php.git@@7312ecc#egg_name=sphinx-php" && \
+   rm -rf ~/.cache/pip
 
 
 EXPOSE $SPHINX_AUTOBUILD_PORT

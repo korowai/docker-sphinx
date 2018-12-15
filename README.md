@@ -157,7 +157,7 @@ may only be changed via docker's build arguments.
 
 ### Software included
 
-  - [php](https://php.net/)
+  - [python](https://python.org/)
   - [git](https://git-scm.com/)
   - [sphinx](https://sphinx-doc.org/)
 
