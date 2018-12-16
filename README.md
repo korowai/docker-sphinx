@@ -1,10 +1,15 @@
 # korowai/docker-sphinx
 
+[![](https://img.shields.io/docker/stars/korowai/sphinx.svg)](https://hub.docker.com/r/korowai/sphinx/ "Docker Stars")
+[![](https://img.shields.io/docker/pulls/korowai/sphinx.svg)](https://hub.docker.com/r/korowai/sphinx/ "Docker Pulls")
+
 Docker container with [sphinx](http://sphinx-doc.org/) documentation generator.
 The container is designed to build documentation for
 [Korowai](https://github.com/korowai/korowai/) and
 [Korowai Framework](https://github.com/korowai/framework/) out of the
 box. It may be easily adjusted to support other projects.
+
+## Image versions
 
   - [![](https://images.microbadger.com/badges/version/korowai/sphinx.svg)](https://microbadger.com/images/korowai/sphinx "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx.svg)](https://microbadger.com/images/korowai/sphinx "Get your own image badge on microbadger.com")
   - [![](https://images.microbadger.com/badges/version/korowai/sphinx:3.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.7-alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/korowai/sphinx:3.7-alpine.svg)](https://microbadger.com/images/korowai/sphinx:3.7-alpine "Get your own image badge on microbadger.com")
