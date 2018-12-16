@@ -243,60 +243,6 @@ class App:
             self.args.config_file.close()
         return Updater(config, **vars(self.args)).run()
 
-##
-##def backup_dir(path, base):
-##    if os.path.isabs(path):
-##        arcname = None
-##    else:
-##        arcname = os.path.relpath(path, base)
-##    with tempfile.NamedTemporaryFile(suffix='.tar', delete=False) as tar:
-##        with tarfile.open(tar, 'w:'):
-##            tarfile.add(path, arcname)
-##    return tar.name
-##
-##def restore_dir(archive, path, base):
-##    if os.path.isabs(path):
-##        member = path
-##    else:
-##        member = os.path.relpath(path, base)
-##
-##    with tarfile.open(archive, 'r:') as tar:
-##        tar.extract(member, base)
-##
-##
-##def subst_file(infile, outfile, subst_dict):
-##    with open(infile, 'r') as fin, open(outfile, 'w') as fout:
-##        fout.write(Template(fin.read()).substitute(subst_dict))
-##
-##
-##def subst_files(files, subst_dict):
-##    for infile, outfile in files:
-##        subst_file(infile, outfile, subst_dict)
-##
-##def generate_context(config, context):
-##    outdir = config['outdir']
-##    path = os.path.join(outdir, context['dir'])
-##    if os.path.exists(path):
-##        archive = backup_dir(path, config['outdir'])
-##    else:
-##        archive = None
-##    try:
-##        files = context['files']
-##        if hasattr(files, 'items'):
-##            files = files.items()
-##        subst_dict = get_subst_dict(config, context)
-##        subst_files(files, subst_dict)
-##    except:
-##        if archive:
-##            restore_dir(archive, path, outdir)
-##    os.remove(backup)
-##
-##
-##def generate_contexts(config):
-##    for context in config['contexts']:
-##        generate_context(config, context)
-
-
 
 if __name__ == '__main__':
     sys.exit(App().run())
