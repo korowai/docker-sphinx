@@ -1,6 +1,6 @@
 import itertools
 
-__version__ = '0.1.1'
+__version__ = '0.2.0'
 
 def xrepr(arg):
     if isinstance(arg, str):
@@ -19,9 +19,9 @@ def sphinx_params(py, os):
     """Configuration parameters for sphinx with their default values"""
     return {'SPHINX_UID': 1000,
             'SPHINX_GID': 1000,
-            'SPHINX_VERSION': '1.7.1',
+            'SPHINX_VERSION': '2.2.0',
             'SPHINX_AUTOBUILD_VERSION': '0.7.1',
-            'SPHINX_RTD_THEME_VERSION': '0.4.2',
+            'SPHINX_RTD_THEME_VERSION': '0.4.3',
             'SPHINX_AUTOBUILD_HOST': '0.0.0.0',
             'SPHINX_AUTOBUILD_PORT': 8000,
             'SPHINX_AUTOBUILD_FLAGS': '',
