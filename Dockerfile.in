@@ -36,7 +36,7 @@ RUN (python -m venv ~/.venv || (python -m pip install --user -U virtualenv && ~/
                           sphinx-autobuild=="${SPHINX_AUTOBUILD_VERSION}" \
                           sphinx_rtd_theme=="${SPHINX_RTD_THEME_VERSION}" \
                           "git+https://github.com/korowai/sphinx-php.git@@korowai" \
-                          breathe && \
+                          breathe=="${SPHINX_BREATHE_VERSION}" && \
    rm -rf ~/.cache/pip
 
 EXPOSE $SPHINX_AUTOBUILD_PORT

@@ -149,9 +149,10 @@ may only be changed via docker's build arguments.
 | --------------------------- | ------------------------ | ------------------------------------------------------ |
 | SPHINX\_UID                 | 1000                     | UID of the user running commands within the container. |
 | SPHINX\_GID                 | 1000                     | GID of the user running commands within the container. |
-| SPHINX\_VERSION             | 1.7.1                    | Version of sphinx to be installed (pypi).              |
+| SPHINX\_VERSION             | 2.2.0                    | Version of sphinx to be installed (pypi).              |
 | SPHINX\_AUTOBUILD\_VERSION  | 0.7.1                    | Version of sphinx-autobuild to be installed (pypi).    |
-| SPHINX\_RTD\_THEME\_VERSION | 0.4.2                    | Version of sphinx\_rtd\_scheme to be installed (pypi). |
+| SPHINX\_RTD\_THEME\_VERSION | 0.4.3                    | Version of sphinx\_rtd\_scheme to be installed (pypi). |
+| SPHINX\_BREATHE\_VERSION    | 4.13.1                   | Version of breathe to be installed (pypi).             |
 | SPHINX\_AUTOBUILD\_HOST     | 0.0.0.0                  | Host address for the listening socket for http server. |
 | SPHINX\_AUTOBUILD\_PORT     | 8000                     | Port numer (within container) for the http server.     |
 | SPHINX\_AUTOBUILD\_FLAGS    |                          | CLI flags for running sphinx-autobuild.                |

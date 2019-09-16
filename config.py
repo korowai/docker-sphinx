@@ -1,6 +1,6 @@
 import itertools
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 def xrepr(arg):
     if isinstance(arg, str):
@@ -17,17 +17,29 @@ def generated_warning(py, os):
 
 def sphinx_params(py, os):
     """Configuration parameters for sphinx with their default values"""
-    return {'SPHINX_UID': 1000,
-            'SPHINX_GID': 1000,
-            'SPHINX_VERSION': '2.2.0',
-            'SPHINX_AUTOBUILD_VERSION': '0.7.1',
-            'SPHINX_RTD_THEME_VERSION': '0.4.3',
-            'SPHINX_AUTOBUILD_HOST': '0.0.0.0',
-            'SPHINX_AUTOBUILD_PORT': 8000,
-            'SPHINX_AUTOBUILD_FLAGS': '',
-            'SPHINX_BUILD_FLAGS': '',
-            'SPHINX_SOURCE_DIR': 'docs/sphinx',
-            'SPHINX_BUILD_DIR': 'docs/build/html'}
+
+    params = {
+        'SPHINX_UID': 1000,
+        'SPHINX_GID': 1000,
+        'SPHINX_VERSION': '2.2.0',
+        'SPHINX_AUTOBUILD_VERSION': '0.7.1',
+        'SPHINX_RTD_THEME_VERSION': '0.4.3',
+        'SPHINX_BREATHE_VERSION' : '4.13.1',
+        'SPHINX_AUTOBUILD_HOST': '0.0.0.0',
+        'SPHINX_AUTOBUILD_PORT': 8000,
+        'SPHINX_AUTOBUILD_FLAGS': '',
+        'SPHINX_BUILD_FLAGS': '',
+        'SPHINX_SOURCE_DIR': 'docs/sphinx',
+        'SPHINX_BUILD_DIR': 'docs/build/html'
+    }
+
+    py_major = py.split('.')[0]
+    if py_major == '2':
+        params['SPHINX_VERSION'] = '1.8.5'
+        params['SPHINX_RTD_THEME_VERSION'] = '0.4.2'
+        params['SPHINX_BREATHE_VERSION'] = '4.13.0'
+
+    return params
 
 
 def sphinx_env_defaults_str(py, os):

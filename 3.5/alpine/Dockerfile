@@ -7,6 +7,7 @@ ARG SPHINX_GID=1000
 ARG SPHINX_VERSION='2.2.0'
 ARG SPHINX_AUTOBUILD_VERSION='0.7.1'
 ARG SPHINX_RTD_THEME_VERSION='0.4.3'
+ARG SPHINX_BREATHE_VERSION='4.13.1'
 ARG SPHINX_AUTOBUILD_HOST='0.0.0.0'
 ARG SPHINX_AUTOBUILD_PORT=8000
 ARG SPHINX_AUTOBUILD_FLAGS=''
@@ -33,6 +34,7 @@ ENV SPHINX_UID=$SPHINX_UID \
     SPHINX_VERSION=$SPHINX_VERSION \
     SPHINX_AUTOBUILD_VERSION=$SPHINX_AUTOBUILD_VERSION \
     SPHINX_RTD_THEME_VERSION=$SPHINX_RTD_THEME_VERSION \
+    SPHINX_BREATHE_VERSION=$SPHINX_BREATHE_VERSION \
     SPHINX_AUTOBUILD_HOST=$SPHINX_AUTOBUILD_HOST \
     SPHINX_AUTOBUILD_PORT=$SPHINX_AUTOBUILD_PORT \
     SPHINX_AUTOBUILD_FLAGS=$SPHINX_AUTOBUILD_FLAGS \
@@ -56,7 +58,7 @@ RUN (python -m venv ~/.venv || (python -m pip install --user -U virtualenv && ~/
                           sphinx-autobuild=="${SPHINX_AUTOBUILD_VERSION}" \
                           sphinx_rtd_theme=="${SPHINX_RTD_THEME_VERSION}" \
                           "git+https://github.com/korowai/sphinx-php.git@korowai" \
-                          breathe && \
+                          breathe=="${SPHINX_BREATHE_VERSION}" && \
    rm -rf ~/.cache/pip
 
 EXPOSE $SPHINX_AUTOBUILD_PORT
