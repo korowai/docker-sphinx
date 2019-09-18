@@ -1,3 +1,7 @@
+#############################################################################
+# NOTE: FILE GENERATED AUTOMATICALLY, DO NOT EDIT!!!
+#############################################################################
+
 FROM python:2.7-alpine
 
 MAINTAINER Paweł Tomulik <ptomulik@meil.pw.edu.pl>

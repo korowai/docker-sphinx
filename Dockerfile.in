@@ -1,3 +1,4 @@
+@GENERATED_WARNING@
 FROM python:@DOCKER_FROM_TAG@
 
 MAINTAINER Paweł Tomulik <ptomulik@@meil.pw.edu.pl>
