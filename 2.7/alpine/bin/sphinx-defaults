@@ -8,8 +8,7 @@
 # Default values for environment variables used by several scripts
 # of the korowai/sphinx docker image.
 
-DEFAULT_SPHINX_UID=1000
-DEFAULT_SPHINX_GID=1000
+DEFAULT_KRW_CODE='/code'
 DEFAULT_SPHINX_VERSION='1.8.5'
 DEFAULT_SPHINX_AUTOBUILD_VERSION='0.7.1'
 DEFAULT_SPHINX_RTD_THEME_VERSION='0.4.2'

@@ -6,8 +6,7 @@ FROM python:3.7-alpine
 
 MAINTAINER Paweł Tomulik <ptomulik@meil.pw.edu.pl>
 
-ARG SPHINX_UID=1000
-ARG SPHINX_GID=1000
+ARG KRW_CODE='/code'
 ARG SPHINX_VERSION='2.2.0'
 ARG SPHINX_AUTOBUILD_VERSION='0.7.1'
 ARG SPHINX_RTD_THEME_VERSION='0.4.3'
@@ -33,8 +32,7 @@ LABEL org.label-schema.build-date="${BUILD_DATE}" \
       org.label-schema.schema-version="1.0"
 
 
-ENV SPHINX_UID=$SPHINX_UID \
-    SPHINX_GID=$SPHINX_GID \
+ENV KRW_CODE=$KRW_CODE \
     SPHINX_VERSION=$SPHINX_VERSION \
     SPHINX_AUTOBUILD_VERSION=$SPHINX_AUTOBUILD_VERSION \
     SPHINX_RTD_THEME_VERSION=$SPHINX_RTD_THEME_VERSION \
@@ -47,28 +45,23 @@ ENV SPHINX_UID=$SPHINX_UID \
     SPHINX_BUILD_DIR=$SPHINX_BUILD_DIR
 
 RUN set -xe && \
-  addgroup -g $SPHINX_GID sphinx && \
-  adduser -D -s /bin/sh -G sphinx -u $SPHINX_UID sphinx && \
-  apk add --no-cache --update git doxygen
-
-COPY bin/* /usr/local/bin/
-
-USER sphinx
-
-RUN (python -m venv ~/.venv || (python -m pip install --user -U virtualenv && ~/.local/bin/virtualenv ~/.venv)) && \
-    . ~/.venv/bin/activate && \
+    apk add --no-cache --update git doxygen && \
     python -m pip install -U pip && \
+    python -m pip install -U virtualenv && \
     python -m pip install sphinx=="${SPHINX_VERSION}" \
                           sphinx-autobuild=="${SPHINX_AUTOBUILD_VERSION}" \
                           sphinx_rtd_theme=="${SPHINX_RTD_THEME_VERSION}" \
                           "git+https://github.com/korowai/sphinx-php.git@korowai" \
                           breathe=="${SPHINX_BREATHE_VERSION}" && \
-   rm -rf ~/.cache/pip
+   rm -rf ~/.cache/pip && \
+   mkdir -p $KRW_CODE
+
+COPY bin/* /usr/local/bin/
 
 EXPOSE $SPHINX_AUTOBUILD_PORT
 
-VOLUME /home/sphinx/project
-WORKDIR /home/sphinx/project
+VOLUME $KRW_CODE
+WORKDIR $KRW_CODE
 
 ENTRYPOINT [ "sphinx-entrypoint" ]
 CMD ["autobuild"]

@@ -45,7 +45,7 @@ user@pc:$ tree .
 Run it as follows
 
 ```console
-user@pc:$ docker run -v "$(pwd):/home/sphinx/project" -p 8000:8000 --rm korowai/sphinx
+user@pc:$ docker run --rm -it -v "$(pwd):/code" -p 8000:8000 --user "`id -u`:`id -g`" --rm korowai/sphinx
 ```
 
 ### Running with docker-compose
@@ -62,7 +62,8 @@ services:
       ports:
          - "8000:8000"
       volumes:
-         - ./:/home/sphinx/project
+         - ./:/code
+      user: "1000:1000"
 ```
 
 Then run
@@ -97,27 +98,20 @@ Several parameters can be changed via environment variables, for example we can
 change build directory to ``build/docs/html`` as follows
 
 ```console
-user@pc:$ docker run -v "$(pwd):/home/sphinx/project" -p 8000:8000 --rm -e SPHINX_BUILD_DIR=build/docs/html korowai/sphinx
+user@pc:$ docker run --rm -it -v "$(pwd):/code" -p 8000:8000 --rm -e SPHINX_BUILD_DIR=build/docs/html korowai/sphinx
 ```
 
 ## Details
 
 ### Volume mount points exposed
 
-  - `/home/sphinx/project` - bind top level directory of your project here.
+  - `/code` - bind top level directory of your project here.
+
+This may be changed with the configuration variable
 
 ### Working directory
 
-  - `/home/sphinx/project`
-
-### User running the commands
-
-Commands are executed within container by container's internal user called
-`sphinx`. By default it has `UID=1000` and `GID=1000`, thus all the generated
-files will have owner with `UID=1000` and `GID=1000`.
-
-The container may be rebuilt with custom UID and GID by setting build
-arguments `SPHINX_UID` and `SPHINX_GID`.
+  - `/code`
 
 ### Files inside container
 
@@ -136,17 +130,15 @@ arguments `SPHINX_UID` and `SPHINX_GID`.
 ### Build arguments & environment variables
 
 The container defines several build arguments which are copied to corresponding
-environment variables within the running container. All the arguments/variables
-have names starting with `SPHINX_` prefix. All the scripts respect these
-variables, so the easiest way to adjust the container to your needs is to set
-environment variables (`-e` flag to [docker](https://docker.com/)). There are
-some exceptions currently -- `SPHINX_UID`, `SPHINX_GID`,
-`SPHINX_AUTOBUILD_PORT`, `SPHINX_VERSION`, `SPHINX_AUTOBUILD_VERSION`, and
-`SPHINX_RTD_THEME_VERSION` must be defined at build time, so they
-may only be changed via docker's build arguments.
+environment variables within the running container. Most of the
+arguments/variables have names starting with `SPHINX_` prefix. All the scripts
+respect these variables, so the easiest way to adjust the container to your
+needs is to set environment variables (`-e` flag to [docker](https://docker.com/)).
+`KRW_CODE` is an exception, it must be defined at build time.
 
 | Argument                    | Default Value            | Description                                            |
 | --------------------------- | ------------------------ | ------------------------------------------------------ |
+| KRW\_CODE                   | /code                    | A predefined volume mountpoint and workdir.            |
 | SPHINX\_UID                 | 1000                     | UID of the user running commands within the container. |
 | SPHINX\_GID                 | 1000                     | GID of the user running commands within the container. |
 | SPHINX\_VERSION             | 2.2.0                    | Version of sphinx to be installed (pypi).              |
