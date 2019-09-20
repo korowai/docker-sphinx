@@ -45,7 +45,7 @@ user@pc:$ tree .
 Run it as follows
 
 ```console
-user@pc:$ docker run --rm -it -v "$(pwd):/code" -p 8000:8000 --user "`id -u`:`id -g`" --rm korowai/sphinx
+user@pc:$ docker run --rm -it -v "$(pwd):/code" -p 8000:8000 --user "`id -u`:`id -g`" korowai/sphinx
 ```
 
 ### Running with docker-compose
@@ -98,7 +98,7 @@ Several parameters can be changed via environment variables, for example we can
 change build directory to ``build/docs/html`` as follows
 
 ```console
-user@pc:$ docker run --rm -it -v "$(pwd):/code" -p 8000:8000 --rm -e SPHINX_BUILD_DIR=build/docs/html korowai/sphinx
+user@pc:$ docker run --rm -it -v "$(pwd):/code" -p 8000:8000 -e SPHINX_BUILD_DIR=build/docs/html korowai/sphinx
 ```
 
 ## Details
