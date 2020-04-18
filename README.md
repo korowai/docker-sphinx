@@ -160,7 +160,7 @@ needs is to set environment variables (`-e` flag to [docker](https://docker.com/
 
 ## LICENSE
 
-Copyright (c) 2018 by Paweł Tomulik <ptomulik@meil.pw.edu.pl>
+Copyright (c) 2018-2020 by Paweł Tomulik <ptomulik@meil.pw.edu.pl>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
