@@ -1,6 +1,6 @@
 import itertools
 
-__version__ = '0.3.0'
+__version__ = '0.4.0'
 
 def xrepr(arg):
     if isinstance(arg, str):
@@ -20,10 +20,10 @@ def sphinx_params(py, os):
 
     params = {
         'KRW_CODE': '/code',
-        'SPHINX_VERSION': '2.2.0',
+        'SPHINX_VERSION': '3.0.1',
         'SPHINX_AUTOBUILD_VERSION': '0.7.1',
         'SPHINX_RTD_THEME_VERSION': '0.4.3',
-        'SPHINX_BREATHE_VERSION' : '4.13.1',
+        'SPHINX_BREATHE_VERSION' : '4.15.0',
         'SPHINX_AUTOBUILD_HOST': '0.0.0.0',
         'SPHINX_AUTOBUILD_PORT': 8000,
         'SPHINX_AUTOBUILD_FLAGS': '',
