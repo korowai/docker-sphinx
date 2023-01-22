@@ -2,15 +2,15 @@
 # NOTE: FILE GENERATED AUTOMATICALLY, DO NOT EDIT!!!
 #############################################################################
 
-FROM python:3.5-alpine
+FROM python:3.10-alpine
 
 MAINTAINER Paweł Tomulik <ptomulik@meil.pw.edu.pl>
 
 ARG KRW_CODE='/code'
-ARG SPHINX_VERSION='3.0.1'
-ARG SPHINX_AUTOBUILD_VERSION='0.7.1'
-ARG SPHINX_RTD_THEME_VERSION='0.4.3'
-ARG SPHINX_BREATHE_VERSION='4.15.0'
+ARG SPHINX_VERSION='6.1.3'
+ARG SPHINX_AUTOBUILD_VERSION='2021.3.14'
+ARG SPHINX_RTD_THEME_VERSION='1.2.0rc3'
+ARG SPHINX_BREATHE_VERSION='master'
 ARG SPHINX_AUTOBUILD_HOST='0.0.0.0'
 ARG SPHINX_AUTOBUILD_PORT=8000
 ARG SPHINX_AUTOBUILD_FLAGS=''
@@ -50,9 +50,9 @@ RUN set -xe && \
     python -m pip install -U virtualenv && \
     python -m pip install sphinx=="${SPHINX_VERSION}" \
                           sphinx-autobuild=="${SPHINX_AUTOBUILD_VERSION}" \
-                          sphinx_rtd_theme=="${SPHINX_RTD_THEME_VERSION}" \
+                          "git+https://github.com/readthedocs/sphinx_rtd_theme@1.2.0rc3" \
                           "git+https://github.com/korowai/sphinx-php.git@korowai" \
-                          breathe=="${SPHINX_BREATHE_VERSION}" && \
+                          "git+https://github.com/breathe-doc/breathe@master" && \
    rm -rf ~/.cache/pip && \
    mkdir -p $KRW_CODE
 

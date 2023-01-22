@@ -1,6 +1,6 @@
 import itertools
 
-__version__ = '0.4.0'
+__version__ = '0.5.0'
 
 def xrepr(arg):
     if isinstance(arg, str):
@@ -20,10 +20,10 @@ def sphinx_params(py, os):
 
     params = {
         'KRW_CODE': '/code',
-        'SPHINX_VERSION': '3.0.1',
-        'SPHINX_AUTOBUILD_VERSION': '0.7.1',
-        'SPHINX_RTD_THEME_VERSION': '0.4.3',
-        'SPHINX_BREATHE_VERSION' : '4.15.0',
+        'SPHINX_VERSION': '6.1.3',
+        'SPHINX_AUTOBUILD_VERSION': '2021.3.14',
+        'SPHINX_RTD_THEME_VERSION': '1.2.0rc3',
+        'SPHINX_BREATHE_VERSION' : 'master',
         'SPHINX_AUTOBUILD_HOST': '0.0.0.0',
         'SPHINX_AUTOBUILD_PORT': 8000,
         'SPHINX_AUTOBUILD_FLAGS': '',
@@ -31,13 +31,6 @@ def sphinx_params(py, os):
         'SPHINX_SOURCE_DIR': 'docs/sphinx',
         'SPHINX_BUILD_DIR': 'docs/build/html'
     }
-
-    py_major = py.split('.')[0]
-    if py_major == '2':
-        params['SPHINX_VERSION'] = '1.8.5'
-        params['SPHINX_RTD_THEME_VERSION'] = '0.4.2'
-        params['SPHINX_BREATHE_VERSION'] = '4.13.0'
-
     return params
 
 
@@ -73,6 +66,15 @@ def context_tag(py, os, sep='-'):
     return context_id(py, os, sep)
 
 
+def context_tags(py, os):
+    return [context_tag(py, os)] + tag_aliases(py, os)
+
+def tag_aliases(py, os):
+    aliases = []
+    if (py, os) == matrix[-1]:
+        aliases.append('latest')
+    return aliases
+
 def context_files(py, os):
     return {'Dockerfile.in': 'Dockerfile',
             'bin/autobuild.in': 'bin/autobuild',
@@ -99,8 +101,15 @@ def context(py, os):
             'subst': context_subst(py, os)}
 
 
-pys = ['2.7', '3.5', '3.6', '3.7']
-oses = ['alpine']
-contexts = [context(py, os) for (py, os) in itertools.product(pys, oses)]
-del pys
-del oses
+# each tuple in matrix is:
+#
+# ( python-version, os )
+#
+matrix = [
+    ('3.8', 'alpine'),
+    ('3.9', 'alpine'),
+    ('3.10', 'alpine'),
+    ('3.11', 'alpine'),
+]
+
+contexts = [context(py, os) for (py, os) in matrix]
