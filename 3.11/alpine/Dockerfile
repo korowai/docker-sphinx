@@ -50,9 +50,9 @@ RUN set -xe && \
     python -m pip install -U virtualenv && \
     python -m pip install sphinx=="${SPHINX_VERSION}" \
                           sphinx-autobuild=="${SPHINX_AUTOBUILD_VERSION}" \
-                          "git+https://github.com/readthedocs/sphinx_rtd_theme@1.2.0rc3" \
+                          "git+https://github.com/readthedocs/sphinx_rtd_theme@${SPHINX_RTD_THEME_VERSION}" \
                           "git+https://github.com/korowai/sphinx-php.git@korowai" \
-                          "git+https://github.com/breathe-doc/breathe@master" && \
+                          "git+https://github.com/breathe-doc/breathe@${SPHINX_BREATHE_VERSION}" && \
    rm -rf ~/.cache/pip && \
    mkdir -p $KRW_CODE
 

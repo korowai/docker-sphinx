@@ -136,20 +136,20 @@ needs is to set environment variables (`-e` flag to [docker](https://docker.com/
 `KRW_CODE` is an exception, it must be defined at build time.
 
 | Argument                    | Default Value            | Description                                            |
-| --------------------------- | ------------------------ | ------------------------------------------------------ |
-| KRW\_CODE                   | /code                    | A predefined volume mountpoint and workdir.            |
-| SPHINX\_UID                 | 1000                     | UID of the user running commands within the container. |
-| SPHINX\_GID                 | 1000                     | GID of the user running commands within the container. |
-| SPHINX\_VERSION             | 3.0.1                    | Version of sphinx to be installed (pypi).              |
-| SPHINX\_AUTOBUILD\_VERSION  | 0.7.1                    | Version of sphinx-autobuild to be installed (pypi).    |
-| SPHINX\_RTD\_THEME\_VERSION | 0.4.3                    | Version of sphinx\_rtd\_scheme to be installed (pypi). |
-| SPHINX\_BREATHE\_VERSION    | 4.15.0                   | Version of breathe to be installed (pypi).             |
-| SPHINX\_AUTOBUILD\_HOST     | 0.0.0.0                  | Host address for the listening socket for http server. |
-| SPHINX\_AUTOBUILD\_PORT     | 8000                     | Port numer (within container) for the http server.     |
-| SPHINX\_AUTOBUILD\_FLAGS    |                          | CLI flags for running sphinx-autobuild.                |
-| SPHINX\_BUILD\_FLAGS        |                          | CLI flags for running sphinx-build.                    |
-| SPHINX\_SOURCE\_DIR         | docs/sphinx              | Top-level directory conf.py for the sphinx docs.       |
-| SPHINX\_BUILD\_DIR          | docs/build/html          | Where to output the generated documentation.           |
+| --------------------------- | ------------------------ | -------------------------------------------------------- |
+| KRW\_CODE                   | /code                    | A predefined volume mountpoint and workdir.              |
+| SPHINX\_UID                 | 1000                     | UID of the user running commands within the container.   |
+| SPHINX\_GID                 | 1000                     | GID of the user running commands within the container.   |
+| SPHINX\_VERSION             | 6.1.3                    | Version of sphinx to be installed (pypi).                |
+| SPHINX\_AUTOBUILD\_VERSION  | 2021.3.14                | Version of sphinx-autobuild to be installed (pypi).      |
+| SPHINX\_RTD\_THEME\_VERSION | 1.2.0rc3                 | Version of sphinx\_rtd\_scheme to be installed (github). |
+| SPHINX\_BREATHE\_VERSION    | master                   | Version of breathe to be installed (github).             |
+| SPHINX\_AUTOBUILD\_HOST     | 0.0.0.0                  | Host address for the listening socket for http server.   |
+| SPHINX\_AUTOBUILD\_PORT     | 8000                     | Port numer (within container) for the http server.       |
+| SPHINX\_AUTOBUILD\_FLAGS    |                          | CLI flags for running sphinx-autobuild.                  |
+| SPHINX\_BUILD\_FLAGS        |                          | CLI flags for running sphinx-build.                      |
+| SPHINX\_SOURCE\_DIR         | docs/sphinx              | Top-level directory conf.py for the sphinx docs.         |
+| SPHINX\_BUILD\_DIR          | docs/build/html          | Where to output the generated documentation.             |
 
 ### Software included
 
